@@ -1,67 +1,18 @@
-# Payload Blank Template
+Teorija je otprilike riješena, što se tiče zadatka uspio sam setupati Payload, Git, MongoDB, Node.js...
+I dodati Vas u ovaj projekt, nadam se...
+Iskreno, sam zadatak nisam ni započeo, ponestalo mi je vremena, i fali mi iskustva, nisam nikad radio nešto slično u srednoj pa sam većinu vremena proveo povezivajući programe i na samom setupu... :)
 
-This template comes configured with the bare minimum to get started on anything you need.
+TEORIJA
 
-## Quick start
-
-This template can be deployed directly from our Cloud hosting and it will setup MongoDB and cloud S3 object storage for media.
-
-## Quick Start - local setup
-
-To spin up this template locally, follow these steps:
-
-### Clone
-
-After you click the `Deploy` button above, you'll want to have standalone copy of this repo on your machine. If you've already cloned this repo, skip to [Development](#development).
-
-### Development
-
-1. First [clone the repo](#clone) if you have not done so already
-2. `cd my-project && cp .env.example .env` to copy the example environment variables. You'll need to add the `MONGODB_URI` from your Cloud project to your `.env` if you want to use S3 storage and the MongoDB database that was created for you.
-
-3. `pnpm install && pnpm dev` to install dependencies and start the dev server
-4. open `http://localhost:3000` to open the app in your browser
-
-That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
-
-#### Docker (Optional)
-
-If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
-
-To do so, follow these steps:
-
-- Modify the `MONGODB_URI` in your `.env` file to `mongodb://127.0.0.1/<dbname>`
-- Modify the `docker-compose.yml` file's `MONGODB_URI` to match the above `<dbname>`
-- Run `docker-compose up` to start the database, optionally pass `-d` to run in the background.
-
-## How it works
-
-The Payload config is tailored specifically to the needs of most websites. It is pre-configured in the following ways:
-
-### Collections
-
-See the [Collections](https://payloadcms.com/docs/configuration/collections) docs for details on how to extend this functionality.
-
-- #### Users (Authentication)
-
-  Users are auth-enabled collections that have access to the admin panel.
-
-  For additional help, see the official [Auth Example](https://github.com/payloadcms/payload/tree/main/examples/auth) or the [Authentication](https://payloadcms.com/docs/authentication/overview#authentication-overview) docs.
-
-- #### Media
-
-  This is the uploads enabled collection. It features pre-configured sizes, focal point and manual resizing to help you manage your pictures.
-
-### Docker
-
-Alternatively, you can use [Docker](https://www.docker.com) to spin up this template locally. To do so, follow these steps:
-
-1. Follow [steps 1 and 2 from above](#development), the docker-compose file will automatically use the `.env` file in your project root
-1. Next run `docker-compose up`
-1. Follow [steps 4 and 5 from above](#development) to login and create your first admin user
-
-That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
-
-## Questions
-
-If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
+1.	VPN tj. Virtual Private Network je konekcija koja pomaže u privatnosti networka i zapravo stvara privatni network koji povezuje internet s korisnikom, stvara put između klijenta i poslužitelja koji je kriptiran i šifriran pa mu ne može bilo tko pristupiti, snalazi se pomoću IP adrese korisnika
+2.	Domain controller – on upravlja korisnicima i računalima unutar jedne mreže, najčešće u Windows okruženju. On provjerava identitet korisnika kad se prijavljuju na mrežu (login) i odlučuje tko ima pristup kojim resursima. Radi tako da koristi Active Directory bazu podataka u kojoj su pohranjeni svi računi, lozinke 
+3.	Za NAS koji koristi Windows domain controller za kontrolu pristupa koristio bih operativni sustav poput TrueNAS-a ili Ubuntu Servera. TrueNAS ima ugrađenu podršku za SMB protokol i može se povezati na Active Directory, tako da korisnici koriste iste korisničke račune kao i na domenu. Za to bi se koristili servisi poput Samba (za dijeljenje foldera preko mreže) i Winbind (za povezivanje s AD-om). Na taj način administrator može točno odrediti koji korisnik ima pristup kojem folderu.
+4.	React aplikacija se može hostati na više načina, ali najjednostavnije je preko web servera poput Nginxa. Nakon što se aplikacija builda naredbom npm run build, dobije se folder s HTML, CSS i JS datotekama koje se kopiraju na server. Nginx se tada konfigurira da servira taj build folder kao statičku web stranicu. Alternativno, može se koristiti neki cloud hosting poput Vercela ili Netlifya koji automatski prepoznaju React projekt.
+5.	Kod postavljanja administratora u Microsoft Azure okruženju treba paziti na principe najmanjih privilegija (least privilege). To znači da admini imaju samo onaj pristup koji im stvarno treba. Treba odvojiti globalne admine od onih koji upravljaju pojedinim servisima poput Teamsa ili Exchangea. Također je važno koristiti višefaktorsku autentifikaciju (MFA) i imati barem dva globalna admina za slučaj da jedan račun postane nedostupan.
+6.	
+7.	Docker je platforma koja omogućuje pokretanje aplikacija u kontejnerima, koji su izolirani ali dijele isti operativni sustav. To je lakše i brže od klasične virtualizacije gdje svaka virtualka ima svoj cijeli OS. Docker je jednostavniji za deployment i troši manje resursa.
+8.	Naglo gašenje servera može uzrokovati gubitak podataka, oštećenje datotečnog sustava i kvar diskova. Da bi se to spriječilo, koristi se UPS (Uninterruptible Power Supply) koji omogućuje da server nastavi raditi kratko vrijeme kad nestane struje, dovoljno da se sve sigurno ugasi. Također se preporučuje redoviti backup i RAID konfiguracija.
+9.	Neke vrste napada na web stranice su SQL injection, XSS (Cross-Site Scripting), DDoS napadi i brute-force pokušaji. Sprječavaju se korištenjem sigurnih kodnih praksi (sanitize inputa), firewallova, rate limitingom, HTTPS-om i redovitim ažuriranjem sustava i plugina.
+10.	Microsoft Exchange, to je sustav za e-mail, omogućuje slanje, primanje i pohranu mailova, te sinkronizaciju s kalendarima, kontaktima i mobilnim uređajima. Koristi se najčešće u poslovnim mrežama i povezan je s Microsoft Entra ID 
+11.	React je JavaScript biblioteka koja služi za izradu korisničkih sučelja, dok je Next.js framework koji koristi React ali dodaje mogućnosti poput server-side renderinga, SEO optimizacije i jednostavnijeg hostanja. Razlika je, React je samo alat, a Next.js je kompletno okruženje za izradu cijelih web stranica.
+12.	Git je sustav za verzioniranje koda, što znači da omogućuje praćenje promjena i suradnju više ljudi na istom projektu bez gubitka podataka. Važan je jer omogućuje povratak na starije verzije, spajanje više grana (branch), i bolju kontrolu nad razvojem. Bez toga bi timski rad na većim projektima bio praktički nemoguć
